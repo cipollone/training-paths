@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-template"
+name = "training-paths"
 version = "0.1.0"
-description = "A template for Python projects"
+description = "Tiny tools to create directories used for training"
 authors = ["Roberto Cipollone <cipollone.rt@gmail.com>"]
 
 [tool.poetry.dependencies]
