@@ -2,7 +2,7 @@
 
 import shutil
 from pathlib import Path
-from typing import Optional, Tuple, Union
+from typing import Tuple, Union
 
 PathT = Union[Path, str]
 
@@ -13,7 +13,6 @@ def get_paths(
     add=False,
     no_create=False,
     confirm=True,
-    args: Optional[PathT] = None,
 ) -> Tuple[Path, Path]:
     """Prepare the directories where models and logs are saved.
 
@@ -32,8 +31,6 @@ def get_paths(
         most recent ones.
     :param confirm: if True, when a diretory needs to be deleted, it asks a
         confirm for deletion.
-    :param args: any input file of parameters. If given, this is saved to
-        the output models dir.
     :return: two paths, respectively for models and logs.
     """
 
@@ -73,7 +70,6 @@ def get_paths(
             add=False,
             no_create=False,
             confirm=confirm,
-            args=args,
         )
 
     # Create new
@@ -82,10 +78,5 @@ def get_paths(
     logs_path = run_path / "logs"
     models_path.mkdir(parents=True)
     logs_path.mkdir(parents=True)
-
-    # Save optional arguments file
-    if args is not None:
-        args_name = Path(args).name
-        shutil.copy(args, logs_path / args_name)
 
     return models_path, logs_path
