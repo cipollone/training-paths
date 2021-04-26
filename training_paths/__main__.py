@@ -3,7 +3,7 @@
 
 def main():
     """Main function."""
-    pass
+    raise TypeError("This package is not meant to be executed as a script.")
 
 
 if __name__ == "__main__":
